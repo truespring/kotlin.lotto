@@ -9,7 +9,8 @@ import com.example.lotto.common.LottoConstants.THIRD_PRIZE
 import com.example.lotto.extract.Extractor
 import com.example.lotto.issue.Lotto
 
-class Game {
+class LottoChecker {
+
     fun checkLotto(lotto: Lotto, extractor: Extractor): String {
         val matchedNumbers = lotto.numbers.intersect(extractor.numbers.toSet()).toList()
         val isBonusMatched = lotto.numbers.contains(extractor.bonus)

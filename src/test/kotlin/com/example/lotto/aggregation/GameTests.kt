@@ -17,7 +17,7 @@ class GameTests {
     @Test
     @DisplayName("로또 낙첨을 확인한다.")
     fun `checkLotto should return correct result`() {
-        val game = Game()
+        val game = LottoChecker()
         val lotto = Lotto.empty()
         val extractor = Extractor.empty()
         val result = game.checkLotto(lotto, extractor)
@@ -27,7 +27,7 @@ class GameTests {
     @Test
     @DisplayName("로또 1등을 확인한다.")
     fun `checkLotto should return correct result for 1st prize`() {
-        val game = Game()
+        val game = LottoChecker()
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 4, 5, 6), 7)
         val result = game.checkLotto(lotto, extractor)
@@ -37,7 +37,7 @@ class GameTests {
     @Test
     @DisplayName("로또 2등을 확인한다.")
     fun `checkLotto should return correct result for 2nd prize`() {
-        val game = Game()
+        val game = LottoChecker()
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 4, 5, 7), 6)
         val result = game.checkLotto(lotto, extractor)
@@ -47,7 +47,7 @@ class GameTests {
     @Test
     @DisplayName("로또 3등을 확인한다.")
     fun `checkLotto should return correct result for 3rd prize`() {
-        val game = Game()
+        val game = LottoChecker()
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 4, 5, 7), 8)
         val result = game.checkLotto(lotto, extractor)
@@ -57,7 +57,7 @@ class GameTests {
     @Test
     @DisplayName("로또 4등을 확인한다.")
     fun `checkLotto should return correct result for 4th prize`() {
-        val game = Game()
+        val game = LottoChecker()
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 4, 7, 8), 9)
         val result = game.checkLotto(lotto, extractor)
@@ -67,7 +67,7 @@ class GameTests {
     @Test
     @DisplayName("로또 5등을 확인한다.")
     fun `checkLotto should return correct result for 5th prize`() {
-        val game = Game()
+        val game = LottoChecker()
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 7, 8, 9), 10)
         val result = game.checkLotto(lotto, extractor)
