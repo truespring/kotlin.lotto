@@ -14,16 +14,14 @@ fun main() {
     val ea = sc.nextInt()
     val round = sc.nextInt()
 
-    val extractor = Extractor.empty()
-    val extractedLotto = extractor.extractLotto(round)
+    val extractedLotto = Extractor.extractLotto(round)
 
     println("The extracted lotto numbers are ${extractedLotto.numbers}")
 
-    val initLotto = Lotto.empty()
     val lottoChecker = LottoChecker()
 
     for (i in 1..ea) {
-        val lotto = initLotto.issueLotto(ea, round)
+        val lotto = Lotto.issueLotto(ea, round)
 
         val prize = lottoChecker.checkLotto(lotto, extractedLotto)
         println("Your lotto numbers are ${lotto.numbers}")

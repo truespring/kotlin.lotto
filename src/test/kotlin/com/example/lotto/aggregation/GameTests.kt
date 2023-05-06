@@ -1,11 +1,6 @@
 package com.example.lotto.aggregation
 
-import com.example.lotto.common.LottoConstants.FIFTH_PRIZE
-import com.example.lotto.common.LottoConstants.FIRST_PRIZE
-import com.example.lotto.common.LottoConstants.FOURTH_PRIZE
-import com.example.lotto.common.LottoConstants.LOSING_PRIZE
-import com.example.lotto.common.LottoConstants.SECOND_PRIZE
-import com.example.lotto.common.LottoConstants.THIRD_PRIZE
+import com.example.lotto.enums.PrizeTypes
 import com.example.lotto.extract.Extractor
 import com.example.lotto.issue.Lotto
 import org.junit.jupiter.api.Assertions.*
@@ -18,10 +13,8 @@ class GameTests {
     @DisplayName("로또 낙첨을 확인한다.")
     fun `checkLotto should return correct result`() {
         val game = LottoChecker()
-        val lotto = Lotto.empty()
-        val extractor = Extractor.empty()
-        val result = game.checkLotto(lotto, extractor)
-        assertEquals(LOSING_PRIZE, result)
+        val result = game.checkLotto(Lotto(), Extractor())
+        assertEquals(PrizeTypes.LOSING_PRIZE.prizeName, result)
     }
 
     @Test
@@ -31,7 +24,7 @@ class GameTests {
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 4, 5, 6), 7)
         val result = game.checkLotto(lotto, extractor)
-        assertEquals(FIRST_PRIZE, result)
+        assertEquals(PrizeTypes.FIRST_PRIZE.prizeName, result)
     }
 
     @Test
@@ -41,7 +34,7 @@ class GameTests {
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 4, 5, 7), 6)
         val result = game.checkLotto(lotto, extractor)
-        assertEquals(SECOND_PRIZE, result)
+        assertEquals(PrizeTypes.SECOND_PRIZE.prizeName, result)
     }
 
     @Test
@@ -51,7 +44,7 @@ class GameTests {
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 4, 5, 7), 8)
         val result = game.checkLotto(lotto, extractor)
-        assertEquals(THIRD_PRIZE, result)
+        assertEquals(PrizeTypes.THIRD_PRIZE.prizeName, result)
     }
 
     @Test
@@ -61,7 +54,7 @@ class GameTests {
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 4, 7, 8), 9)
         val result = game.checkLotto(lotto, extractor)
-        assertEquals(FOURTH_PRIZE, result)
+        assertEquals(PrizeTypes.FOURTH_PRIZE.prizeName, result)
     }
 
     @Test
@@ -71,6 +64,6 @@ class GameTests {
         val lotto = Lotto(0, 0, listOf(1, 2, 3, 4, 5, 6))
         val extractor = Extractor(0, listOf(1, 2, 3, 7, 8, 9), 10)
         val result = game.checkLotto(lotto, extractor)
-        assertEquals(FIFTH_PRIZE, result)
+        assertEquals(PrizeTypes.FIFTH_PRIZE.prizeName, result)
     }
 }

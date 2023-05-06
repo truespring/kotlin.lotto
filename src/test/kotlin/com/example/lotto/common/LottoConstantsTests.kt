@@ -15,11 +15,5 @@ class LottoConstantsTests {
         assertEquals(0, LottoConstants.DEFAULT_BONUS)
         assertEquals(0, LottoConstants.DEFAULT_ID)
         assertEquals(0, LottoConstants.DEFAULT_ROUND)
-        assertEquals("1등", LottoConstants.FIRST_PRIZE)
-        assertEquals("2등", LottoConstants.SECOND_PRIZE)
-        assertEquals("3등", LottoConstants.THIRD_PRIZE)
-        assertEquals("4등", LottoConstants.FOURTH_PRIZE)
-        assertEquals("5등", LottoConstants.FIFTH_PRIZE)
-        assertEquals("낙첨", LottoConstants.LOSING_PRIZE)
     }
 }
