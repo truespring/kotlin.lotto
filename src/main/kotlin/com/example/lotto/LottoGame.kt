@@ -7,9 +7,9 @@ import java.util.*
 
 class LottoGame
 
-fun main(args: Array<String>) {
+fun main() {
 
-    val sc: Scanner = Scanner(System.`in`)
+    val sc = Scanner(System.`in`)
     println("Enter the number of lotto games to play: ")
     val ea = sc.nextInt()
     val round = sc.nextInt()
