@@ -7,13 +7,13 @@ import com.example.lotto.common.LottoConstants.MAX_NUMBER
 import com.example.lotto.common.LottoConstants.MIN_NUMBER
 
 data class Extractor(
-    val round: Int,
-    val numbers: List<Int>,
-    val bonus: Int
+    val round: Int = DEFAULT_ROUND,
+    val numbers: List<Int> = emptyList(),
+    val bonus: Int = DEFAULT_BONUS
 ) {
 
     companion object {
-        fun extractLotto(round: Int): Extractor {
+        fun extractLotto(round: Int = DEFAULT_ROUND): Extractor {
             val extractedNumbers = (MIN_NUMBER..MAX_NUMBER).shuffled().take(LOTTO_SIZE).sorted()
             return Extractor(
                 round,
