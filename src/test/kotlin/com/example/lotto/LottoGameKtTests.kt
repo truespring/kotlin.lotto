@@ -14,16 +14,15 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class LottoGameKtTests {
+    private val round = 1609
+    private val lottoChecker = LottoChecker()
+    private val extractLotto = Extractor.empty().extractLotto(round)
+
+    private var prize: String = ""
 
     @Test
     @DisplayName("1등이 발생할 때까지 로또를 발행한다")
     fun `issueLottoUntilFirstPrize should return lotto until first prize`() {
-        val round = 1609
-        val lottoChecker = LottoChecker()
-
-        var prize: String
-        val extractLotto = Extractor.empty().extractLotto(round)
-
         for (i in 1..Int.MAX_VALUE) {
             prize = lottoChecker.checkLotto(Lotto.empty().issueLotto(i, round), extractLotto)
             if (prize == FIRST_PRIZE) {
@@ -36,12 +35,6 @@ class LottoGameKtTests {
     @Test
     @DisplayName("2등이 발생할 때까지 로또를 발행한다")
     fun `issueLottoUntilSecondPrize should return lotto until second prize`() {
-        val round = 1609
-        val lottoChecker = LottoChecker()
-
-        var prize: String
-        val extractLotto = Extractor.empty().extractLotto(round)
-
         for (i in 1..Int.MAX_VALUE) {
             prize = lottoChecker.checkLotto(Lotto.empty().issueLotto(i, round), extractLotto)
             if (prize == SECOND_PRIZE) {
@@ -54,12 +47,6 @@ class LottoGameKtTests {
     @Test
     @DisplayName("3등이 발생할 때까지 로또를 발행한다")
     fun `issueLottoUntilThirdPrize should return lotto until third prize`() {
-        val round = 1609
-        val lottoChecker = LottoChecker()
-
-        var prize: String
-        val extractLotto = Extractor.empty().extractLotto(round)
-
         for (i in 1..Int.MAX_VALUE) {
             prize = lottoChecker.checkLotto(Lotto.empty().issueLotto(i, round), extractLotto)
             if (prize == THIRD_PRIZE) {
@@ -72,12 +59,6 @@ class LottoGameKtTests {
     @Test
     @DisplayName("4등이 발생할 때까지 로또를 발행한다")
     fun `issueLottoUntilFourthPrize should return lotto until fourth prize`() {
-        val round = 1609
-        val lottoChecker = LottoChecker()
-
-        var prize: String
-        val extractLotto = Extractor.empty().extractLotto(round)
-
         for (i in 1..Int.MAX_VALUE) {
             prize = lottoChecker.checkLotto(Lotto.empty().issueLotto(i, round), extractLotto)
             if (prize == FOURTH_PRIZE) {
@@ -90,12 +71,6 @@ class LottoGameKtTests {
     @Test
     @DisplayName("5등이 발생할 때까지 로또를 발행한다")
     fun `issueLottoUntilFifthPrize should return lotto until fifth prize`() {
-        val round = 1609
-        val lottoChecker = LottoChecker()
-
-        var prize: String
-        val extractLotto = Extractor.empty().extractLotto(round)
-
         for (i in 1..Int.MAX_VALUE) {
             prize = lottoChecker.checkLotto(Lotto.empty().issueLotto(i, round), extractLotto)
             if (prize == FIFTH_PRIZE) {
@@ -108,12 +83,6 @@ class LottoGameKtTests {
     @Test
     @DisplayName("낙첨이 발생할 때까지 로또를 발행한다.")
     fun `issueLottoUntilLosingPrize should return lotto until losing prize`() {
-        val round = 1609
-        val lottoChecker = LottoChecker()
-
-        var prize: String
-        val extractLotto = Extractor.empty().extractLotto(round)
-
         for (i in 1..Int.MAX_VALUE) {
             prize = lottoChecker.checkLotto(Lotto.empty().issueLotto(i, round), extractLotto)
             if (prize == LOSING_PRIZE) {
@@ -122,5 +91,4 @@ class LottoGameKtTests {
             }
         }
     }
-
 }
